@@ -1,0 +1,27 @@
+.nav__links {
+  display: flex;
+  align-items: center;
+  margin-inline: auto;
+  justify-content: space-between;
+}
+
+ul {
+  display: flex;
+  gap: 1rem;
+}
+
+ul a {
+  font-weight: 500;
+  color: black;
+  text-decoration: inherit;
+  font-size: 20px;
+}
+ul a:hover {
+  text-decoration: underline;
+  color: #535bf2;
+}
+
+ul .active {
+  text-decoration: underline;
+  color: #535bf2;
+}

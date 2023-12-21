@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* max-width: 1820px; */
+}
+.container {
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.header,
+.footer {
+  background: #7ed7c1;
+}
