@@ -1,34 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth } from "../../../firebase/firebase.config";
-import { toast } from "react-toastify";
-
 import "./SignUp.css";
 
 const SignUp = () => {
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
-
-  if (error) {
-    return toast.error(error.message);
-  }
-
   const handleSignUp = (e) => {
     e.preventDefault();
-    const name = e.target.fullname.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const confirmPass = e.target.cpassword.value;
-    if (email === "" && password === "" && confirmPass === "") {
-      return toast.error("Fill up The input fiuld");
-    }
-
-    if (password !== confirmPass) {
-      return toast.error("Password doesn't match");
-    }
-
-    createUserWithEmailAndPassword(email, password);
-    return toast.success("Sign Up Successfully!");
   };
 
   return (

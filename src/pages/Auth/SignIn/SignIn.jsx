@@ -1,31 +1,16 @@
 import { NavLink } from "react-router-dom";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth } from "../../../firebase/firebase.config";
 import "./SignIn.css";
-import { toast } from "react-toastify";
 
 const SignIn = () => {
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
-
   const handleSignIn = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-
-    if (email === "" && password === "") {
-      return toast.error("Fill up The input fiuld");
-    }
-
-    signInWithEmailAndPassword(email, password);
-    return toast.success("Sign In Successfully!");
+    
   };
 
   return (
     <div className="signup-container">
       <div className="container">
         <form onSubmit={handleSignIn} className="sign-form" id="sign-form">
-          {/* <div className="sign-form" id="sign-form"> */}
           <h1 className="htmlForm-title">Sign In</h1>
           <p className="htmlForm-caption">
             See your growth and get consulting support!
@@ -71,7 +56,6 @@ const SignIn = () => {
           <p className="info">
             &copy; {new Date().getFullYear()} Rahulfordev All rights reserved.
           </p>
-          {/* </div> */}
         </form>
       </div>
     </div>
