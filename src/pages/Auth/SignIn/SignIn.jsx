@@ -1,19 +1,32 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const SignIn = () => {
-  const navigate = useNavigate();
-  const handleGoHome = () => {
-    navigate("/");
-  };
-
-  const handleGoBack = () => {
-    navigate(-1);
-  };
   return (
     <div>
       <div>SignIn</div>
-      <button onClick={handleGoHome}>Go Home</button>
-      <button onClick={handleGoBack}>Go Back</button>
+      <form action="">
+        <div>
+          <div>
+            <input type="email" placeholder="Enter your email" />
+          </div>
+          <div>
+            <input type="password" placeholder="Enter your password" />
+          </div>
+          <div>
+            <button>Login</button>
+          </div>
+        </div>
+      </form>
+      <div>
+        <h5>
+          Do not have an account yet? <NavLink to={"/signup"}>Sign Up</NavLink>
+        </h5>
+      </div>
+      <div>
+        <button>Google</button>
+        <button>Github</button>
+        <button>Facebook</button>
+      </div>
     </div>
   );
 };

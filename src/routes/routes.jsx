@@ -8,6 +8,7 @@ import SignUp from "../pages/Auth/SignUp/SignUp";
 import NotFound from "../pages/NotFound/NotFound";
 import Users from "../pages/Users/Users";
 import UserDetails from "../pages/UserDetails/UserDetails";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,7 @@ const routes = createBrowserRouter([
         path: "users",
         element: <Users />,
         loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
+        errorElement: <ErrorPage />,
       },
       {
         path: "/users/:userID",
