@@ -35,14 +35,14 @@ const routes = createBrowserRouter([
       {
         path: "users",
         element: <Users />,
-        loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
+        loader: () => fetch("https://dummyjson.com/users?limit=0"),
         errorElement: <ErrorPage />,
       },
       {
         path: "/users/:userID",
         element: <UserDetails />,
         loader: ({ params }) =>
-          fetch(`https://jsonplaceholder.typicode.com/users/${params.userID}`),
+          fetch(`https://dummyjson.com/users/${params.userID}`),
       },
     ],
   },

@@ -1,0 +1,9 @@
+.users {
+  padding: 2rem 1rem;
+}
+
+.users__section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.5rem;
+}
