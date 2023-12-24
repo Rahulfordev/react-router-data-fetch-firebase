@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
@@ -7,12 +7,13 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleSignUp = (e) => {
     e.preventDefault();
 
     const form = e.target;
-
     const email = form.email.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
@@ -42,6 +43,19 @@ const SignUp = () => {
       });
   };
 
+  const SignInGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
+  };
+
   return (
     <div className="signup-container">
       <div className="container">
@@ -50,7 +64,7 @@ const SignUp = () => {
           <p className="htmlForm-caption">
             See your growth and get consulting support!
           </p>
-          <button className="google-sign-btn">
+          <button onClick={SignInGoogle} className="google-sign-btn">
             <i className="fa fa-google"></i> Sign up with Google
           </button>
 
@@ -79,7 +93,7 @@ const SignUp = () => {
             type="password"
             name="password"
             id="password"
-            placeholder="Min. 8 character"
+            placeholder="Min. 6 character"
           />
 
           <label htmlFor="confirm">
@@ -89,7 +103,7 @@ const SignUp = () => {
             type="password"
             name="confirm"
             id="cpassword"
-            placeholder="Min. 8 character"
+            placeholder="Min. 6 character"
           />
 
           <br />

@@ -9,7 +9,7 @@
   padding: 5%;
 }
 
-label:not(label:first-of-type) {
+label {
   display: block;
   margin: 15px 0 5px 0;
   font-size: 14px;
@@ -128,4 +128,33 @@ i.fa-google {
 
 .password-mannage {
   width: 90px;
+}
+
+.password-toggle {
+  position: relative;
+}
+
+.password-toggle svg {
+  position: absolute;
+  top: -2.4rem;
+  left: 39rem;
+  font-size: 1.5rem;
+  color: #cccccc;
+}
+
+@media screen and (max-width: 600px) {
+  #sign-form {
+    width: 80%;
+    height: 100%;
+    margin: 10vh auto;
+    padding: 5%;
+  }
+
+  .password-toggle svg {
+    position: absolute;
+    top: -2.4rem;
+    left: 17rem;
+    font-size: 1.5rem;
+    color: #cccccc;
+  }
 }

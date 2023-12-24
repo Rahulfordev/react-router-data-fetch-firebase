@@ -9,7 +9,6 @@ const MainLayout = () => {
     <div className="main-container">
       <Header />
       <div>{natigate.state === "loading" ? <Loading /> : <Outlet />}</div>
-
       <Footer />
     </div>
   );

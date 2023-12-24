@@ -2,13 +2,6 @@
   font-family: "Alkatra", cursive;
 }
 
-#sign-form {
-  width: 50%;
-  height: 100%;
-  margin: 10vh auto;
-  padding: 5%;
-}
-
 label:not(label:first-of-type) {
   display: block;
   margin: 15px 0 5px 0;

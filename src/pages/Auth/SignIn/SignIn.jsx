@@ -1,14 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import "./SignIn.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { BiShow } from "react-icons/bi";
+import { BiHide } from "react-icons/bi";
 
 const SignIn = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [show, setShow] = useState(false);
 
-  const { SignIn } = useContext(AuthContext);
+  const { SignIn, signInWithGoogle } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -25,6 +31,20 @@ const SignIn = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setSuccess("login successful");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
+  };
+
+  const SignInGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -40,7 +60,7 @@ const SignIn = () => {
           <p className="htmlForm-caption">
             See your growth and get consulting support!
           </p>
-          <button className="google-sign-btn">
+          <button className="google-sign-btn" onClick={SignInGoogle}>
             <i className="fa fa-google"></i> Sign up with Google
           </button>
 
@@ -57,19 +77,21 @@ const SignIn = () => {
           </label>
           <input type="email" name="email" placeholder="mail@website.com" />
 
-          <label htmlFor="password">
-            Password<span className="star-required">*</span>
-          </label>
-          <input
-            type={show ? "text" : "password"}
-            name="password"
-            id="password"
-            placeholder="Min. 8 character"
-          />
+          <div className="password-input">
+            <label htmlFor="password">
+              Password<span className="star-required">*</span>
+            </label>
+            <input
+              type={show ? "text" : "password"}
+              name="password"
+              id="password"
+              placeholder="Min. 6 character"
+            />
 
-          <p className="password-mannage" onClick={() => setShow(!show)}>
-            <small>{show ? "Hide password" : "Show password"}</small>
-          </p>
+            <small className="password-toggle" onClick={() => setShow(!show)}>
+              {show ? <BiHide /> : <BiShow />}
+            </small>
+          </div>
 
           <br />
           <br />

@@ -9,6 +9,8 @@ import NotFound from "../pages/NotFound/NotFound";
 import Users from "../pages/Users/Users";
 import UserDetails from "../pages/UserDetails/UserDetails";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
+
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -20,7 +22,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "about",
-        element: <About />,
+        element: (
+          <PrivateRoute>
+            <About />
+          </PrivateRoute>
+        ),
       },
       {
         path: "contact",
