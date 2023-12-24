@@ -3,6 +3,10 @@
   top: 0;
 }
 
+.header.true {
+  box-shadow: 0px 1px 5px rgb(132, 73, 73);
+}
+
 .nav__links {
   display: flex;
   align-items: center;

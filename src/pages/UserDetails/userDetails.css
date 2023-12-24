@@ -1,3 +1,7 @@
+.user__details--containers {
+  padding: 0 1rem;
+}
+
 .user__details--container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
@@ -8,7 +12,7 @@
   margin-inline: auto;
   margin-top: 1rem;
   border-radius: 30px;
-  padding: 2rem;
+  padding: 2rem 1rem;
   gap: 1.5rem;
 }
 

@@ -1,9 +1,19 @@
 import { NavLink } from "react-router-dom";
 import "./Header.css";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScroll(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
   const handleLogout = () => {
     logOut()
@@ -13,7 +23,7 @@ const Header = () => {
       .catch((error) => console.error(error));
   };
   return (
-    <header className="header">
+    <header className={`header ${scroll}`}>
       <nav className="nav__links container">
         <div className="nav__logo">
           <h1>Logo</h1>
