@@ -1,3 +1,57 @@
 .user__details--container {
-    background-color: antiquewhite;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  align-items: center;
+  background-color: antiquewhite;
+  max-width: 900px;
+  min-height: 720px;
+  margin-inline: auto;
+  margin-top: 1rem;
+  border-radius: 30px;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+.user__details--image {
+  background-color: salmon;
+  border-radius: 15px;
+}
+
+.user__details--image img {
+  width: 100%;
+}
+
+.userInfoDetail table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.personalInfo {
+  border-collapse: collapse;
+}
+
+.personalInfo td {
+  border: 1px solid salmon;
+  padding: 8px;
+}
+
+.personalInfo tr:first-child td {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.personalInfo td:first-child {
+  font-weight: 600;
+  width: 10rem;
+}
+
+.users-back {
+  margin-top: 1.7rem;
+}
+
+.users__back--button {
+  margin-top: 10px;
+  padding: 12px 25px;
+  border-radius: 5px;
+  background-color: salmon;
 }

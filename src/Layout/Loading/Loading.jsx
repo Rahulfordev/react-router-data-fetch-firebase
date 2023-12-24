@@ -1,5 +1,5 @@
 import "./Loading.css";
-import loadingt from "../../assets/loading2.gif";
+import loadingt from "../../assets/bouncing-circles.svg";
 const Loading = () => {
   return (
     <div className="loading">

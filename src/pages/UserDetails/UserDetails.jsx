@@ -31,15 +31,17 @@ const UserDetails = () => {
 
   return (
     <div className="user__details--container">
-      <div>
+      <div className="user__details--image">
         <img src={image} alt="" />
       </div>
-      <div>
-        <div>
+      <div className="userInfoDetails">
+        <div className="userInfoDetail">
           <table className="personalInfo">
             <tbody>
               <tr>
-                <td colSpan="2">Personal Info:</td>
+                <td className="user__info--title" colSpan="2">
+                  Personal Info:
+                </td>
               </tr>
               <tr>
                 <td>Name: </td>
@@ -86,7 +88,9 @@ const UserDetails = () => {
           <table className="personalInfo">
             <tbody>
               <tr>
-                <td colSpan="2">Company Info:</td>
+                <td className="user__info--title" colSpan="2">
+                  Company Info:
+                </td>
               </tr>
               <tr>
                 <td>Name: </td>
@@ -109,9 +113,9 @@ const UserDetails = () => {
             </tbody>
           </table>
         </div>
-        <div>
-          <Link to={"/users"}>
-            <button>Back</button>
+        <div className="users-back">
+          <Link className="users__back--button" to={"/users"}>
+            Back
           </Link>
         </div>
       </div>
