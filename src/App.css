@@ -13,3 +13,18 @@ body {
 .footer {
   background: #7ed7c1;
 }
+
+.userDetailsShowButton {
+  background-color: salmon;
+  &:hover {
+    background-color: #fff;
+    color: salmon;
+  }
+}
+
+.userDetailsShowButton a {
+  color: #fff;
+  &:hover {
+    color: salmon;
+  }
+}

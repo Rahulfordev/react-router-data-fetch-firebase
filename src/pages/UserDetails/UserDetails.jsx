@@ -115,9 +115,11 @@ const UserDetails = () => {
             </table>
           </div>
           <div className="users-back">
-            <Link className="users__back--button" to={"/users"}>
-              Back
-            </Link>
+            <button className="userDetailsShowButton">
+              <Link className="users__back--button" to={"/users"}>
+                Back
+              </Link>
+            </button>
           </div>
         </div>
       </div>
