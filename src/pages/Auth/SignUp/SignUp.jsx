@@ -14,10 +14,11 @@ const SignUp = () => {
     e.preventDefault();
 
     const form = e.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
-    // console.log(email, password, confirm);
+    console.log(name, email, password, confirm);
     setError("");
     setSuccess("");
     if (email === "" && password === "" && confirm === "") {
@@ -35,6 +36,7 @@ const SignUp = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        form.reset();
         setSuccess("Sign up successful");
       })
       .catch((error) => {
@@ -75,6 +77,16 @@ const SignUp = () => {
             <p className="guide-google">or Sign up with Email</p>
             <div className="hr-right"></div>
           </div>
+
+          <label htmlFor="name">
+            Name<span className="star-required">*</span>
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your name"
+          />
 
           <label htmlFor="email">
             Email<span className="star-required">*</span>

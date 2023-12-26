@@ -32,6 +32,7 @@ const SignIn = () => {
         console.log(loggedUser);
         setSuccess("login successful");
         navigate(from, { replace: true });
+        form.reset();
       })
       .catch((error) => {
         console.log(error);

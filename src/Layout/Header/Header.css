@@ -15,7 +15,7 @@
   justify-content: space-between;
 }
 
-ul {
+.nav__links ul {
   display: flex;
   gap: 1rem;
 }
@@ -34,4 +34,49 @@ ul a:hover {
 ul .active {
   text-decoration: underline;
   color: #535bf2;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    position: static;
+    z-index: 9999;
+    background-color: black;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav__logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16rem;
+  }
+
+  .nav__links {
+    flex-direction: column;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: -100%;
+    background-color: rgba(195, 93, 93, 0.8);
+    transition: all 0.3s;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 9;
+  }
+
+  .nav__links ul {
+    flex-direction: column;
+  }
+
+  .header:hover .nav__links {
+    left: 0;
+  }
 }

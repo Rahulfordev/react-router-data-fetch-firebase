@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import "./Header.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { RxHamburgerMenu } from "react-icons/rx";
+
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -27,6 +29,7 @@ const Header = () => {
       <nav className="nav__links container">
         <div className="nav__logo">
           <h1>Logo</h1>
+          <RxHamburgerMenu className="hamburger" />
         </div>
         <ul>
           <NavLink to={"/"}>Home</NavLink>
